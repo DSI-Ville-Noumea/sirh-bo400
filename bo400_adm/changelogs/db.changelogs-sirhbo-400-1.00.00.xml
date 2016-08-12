@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet author="barmi83" id="drop_create_table_agent">
+        <createTable tableName="agents" remarks="Table de travail entre AS400 et Postgres, elle est régulièrement purgée et remplie">
+            <column name="id_agent" type="bigint"/>
+            <column name="civilite" type="varchar(30)"/>
+            <column name="mail" type="varchar(100)"/>
+            <column name="id_service_ads" type="integer"/>
+            <column name="nomatr" type="integer"/>
+            <column name="nom_usage" type="varchar(100)" />
+            <column name="prenom_usage" type="varchar(100)" />
+            <column name="prenom_minuscule" type="varchar(100)"/>
+            <column name="lib_titre_poste" type="varchar(100)"/>
+            <column name="id_base_horaire_absence" type="integer"/>
+            <column name="lipadm" type="varchar(100)"/>
+            <column name="lib_type_contrat" type="varchar(30)"/>
+            <column name="cdcadr" type="varchar(10)"/>
+            <column name="iban" type="varchar(30)"/>
+            <column name="ina" type="integer"/>
+            <column name="inm" type="integer"/>
+            <column name="licate" type="varchar(100)"/>
+            <column name="car1" type="varchar(100)"/>
+            <column name="car2" type="varchar(100)"/>
+            <column name="car3" type="varchar(100)"/>
+            <column name="car4" type="varchar(100)"/>
+            <column name="num1" type="integer"/>
+            <column name="num2" type="integer"/>
+            <column name="num3" type="integer"/>
+            <column name="num4" type="integer"/>
+            <column name="date1" type="date"/>
+            <column name="date2" type="date"/>
+            <column name="date3" type="date"/>
+            <column name="date4" type="date"/>
+        </createTable>
+
+        <createIndex indexName="agents_idx1" tableName="agents" unique="true">
+            <column name="id_agent" type="bigint"/>
+        </createIndex>
+
+        <createIndex indexName="agents_idx2" tableName="agents" unique="true">
+            <column name="nomatr" type="bigint"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet author="barmi83" id="drop_create_table_ads">
+        <createTable tableName="ads" remarks="Table de travail entre AS400 et Postgres, elle est régulièrement purgée et remplie">
+            <column name="id_entite" type="integer"/>
+            <column name="sigle" type="varchar(30)"/>
+            <column name="label" type="varchar(100)"/>
+            <column name="id_type_entite" type="integer"/>
+            <column name="id_entite_parent" type="integer"/>
+            <column name="id_ref_statut_entite" type="integer"/>
+            <column name="level" type="integer"/>
+            <column name="hierarchychain" type="varchar(100)"/>
+            <column name="pole" type="varchar(30)"/>
+            <column name="direction" type="varchar(30)"/>
+            <column name="service" type="varchar(30)"/>
+            <column name="section" type="varchar(30)"/>
+            <column name="car1" type="varchar(100)"/>
+            <column name="car2" type="varchar(100)"/>
+            <column name="car3" type="varchar(100)"/>
+            <column name="car4" type="varchar(100)"/>
+            <column name="num1" type="integer"/>
+            <column name="num2" type="integer"/>
+            <column name="num3" type="integer"/>
+            <column name="num4" type="integer"/>
+            <column name="date1" type="date"/>
+            <column name="date2" type="date"/>
+            <column name="date3" type="date"/>
+            <column name="date4" type="date"/>
+        </createTable>
+
+        <createIndex indexName="ads_idx1" tableName="ads" unique="true">
+            <column name="id_entite" type="bigint"/>
+        </createIndex>
+        <createIndex indexName="ads_idx2" tableName="ads" unique="false">
+            <column name="pole" type="varchar(30)"/>
+            <column name="direction" type="varchar(30)"/>
+            <column name="service" type="varchar(30)"/>
+            <column name="section" type="varchar(30)"/>
+        </createIndex>
+        <createIndex indexName="ads_idx3" tableName="ads" unique="false">
+            <column name="direction" type="varchar(30)"/>
+            <column name="service" type="varchar(30)"/>
+            <column name="section" type="varchar(30)"/>
+        </createIndex>
+        <createIndex indexName="ads_idx4" tableName="ads" unique="false">
+            <column name="service" type="varchar(30)"/>
+            <column name="section" type="varchar(30)"/>
+        </createIndex>
+    </changeSet>
+
+    <!-- TAG -->
+    <changeSet author="barmi83" id="tag_1.00.00">
+        <tagDatabase tag="1.00.00"/>
+    </changeSet>
+
+</databaseChangeLog>
