@@ -6,4 +6,7 @@
 	<!-- SIRH-BO400 1.00.00 -->
 	<include file="changelogs/db.changelogs-sirhbo-400-1.00.00.xml" relativeToChangelogFile="true"/>
 
+	<!-- SIRH-BO400 1.00.01 -->
+	<include file="changelogs/db.changelogs-sirhbo-400-1.00.01.xml" relativeToChangelogFile="true"/>
+
 </databaseChangeLog>

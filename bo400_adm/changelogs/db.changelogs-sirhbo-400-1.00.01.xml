@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet author="barmi83" id="alter_label_ads">
+      <modifyDataType columnName="label" newDataType="varchar(200)" tableName="ads"/>
+    </changeSet>
+
+    <!-- TAG -->
+    <changeSet author="barmi83" id="tag_1.00.01">
+        <tagDatabase tag="1.00.01"/>
+    </changeSet>
+
+</databaseChangeLog>
